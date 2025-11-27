@@ -6,11 +6,13 @@ class DrawerTile extends StatelessWidget {
     required this.title,
     required this.onTap,
     required this.icon,
+    required this.identifier,
   });
 
   final String title;
   final IconData icon;
-  final void Function() onTap;
+  final void Function(String identifier) onTap;
+  final String identifier;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class DrawerTile extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Navigator.pop(context);
+        onTap(identifier);
       },
     );
   }
